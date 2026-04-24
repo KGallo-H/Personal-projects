@@ -6,6 +6,8 @@ public class EmailApp {
 
         Email em1 = new Email("John", "smith");
 
+        System.out.println(em1.showInfo());
+
     }
 
 }
