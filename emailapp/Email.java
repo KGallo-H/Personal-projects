@@ -20,13 +20,13 @@ public class Email {
         System.out.println("EMAIL CREATED: " + this.firstName + " " + this.lastName);
 
         this.department = setDepartment();
-        System.out.println("Department: " + this.department);
+        //System.out.println("Department: " + this.department);
 
         this.password = randomPassword(defaultPasswordLength);
-        System.out.println("Your password is: " + this.password);
+        //System.out.println("Your password is: " + this.password);
 
         email = firstName.toLowerCase() + "." + lastName.toLowerCase() + "@" + department + ".company.com";
-        System.out.println("Your email is: " + email);
+        //System.out.println("Your email is: " + email);
     }
 
     private String setDepartment(){
@@ -68,9 +68,15 @@ public class Email {
     public String getAlternateEmail() { 
         return alternateEmail; 
     }
-    
+
     public String getPassword() { 
         return password; 
+    }
+
+    public String showInfo() {
+        return "DISPLAY NAME: " + firstName + " " + lastName +
+                "\nCOMPANY EMAIL: " + email +
+                "\nMAILBOX CAPACITY: " + mailboxCapacity + "mb";
     }
 
 }
