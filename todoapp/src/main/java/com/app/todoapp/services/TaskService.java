@@ -26,4 +26,14 @@ public class TaskService {
         taskRepository.save(task);
     }
 
+    public void deleteTask(Long id) {
+        taskRepository.deleteById(id);
+    }
+
+    public void toggleTaskCompletion(Long id) {
+        Task task = taskRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Task not found"));
+        task.setCompleted(!task.isCompleted());
+        taskRepository.save(task);
+    }
+
 }
