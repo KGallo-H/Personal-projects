@@ -1,0 +1,39 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>Recursive Countdown</title>
+	<style>
+		body{font-family:system-ui,Segoe UI,Roboto,Arial;background:#111;color:#eef;display:flex;align-items:center;justify-content:center;height:100vh;margin:0}
+		.card{text-align:center}
+		#display{font-size:4rem;margin:1rem}
+		button{padding:.6rem 1rem;font-size:1rem}
+	</style>
+</head>
+<body>
+	<div class="card">
+		<div id="display">Ready</div>
+		<button id="start">Start Countdown</button>
+	</div>
+
+	<script>
+		// Recursive countdown: calls itself with n-1 via setTimeout to create a visible delay
+		function countdown(n) {
+			const disp = document.getElementById('display');
+			if (n <= 0) {
+				disp.textContent = 'Lift off!';
+				return;
+			}
+			disp.textContent = n;
+			// wait 1 second then recurse
+			setTimeout(function(){ countdown(n - 1); }, 1000);
+		}
+
+		document.getElementById('start').addEventListener('click', function(){
+			countdown(3);
+		});
+	</script>
+</body>
+</html>
