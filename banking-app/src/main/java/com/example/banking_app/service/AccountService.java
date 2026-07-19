@@ -1,7 +1,7 @@
 package com.example.banking_app.service;
 
-import com.example.banking_app.entity.Account;
+import com.example.banking_app.dto.AccountDto;
 
 public interface AccountService {
-    Account createAccount(Account account);
+    AccountDto createAccount(AccountDto accountDto);
 }
