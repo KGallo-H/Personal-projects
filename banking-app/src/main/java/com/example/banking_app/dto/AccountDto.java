@@ -10,4 +10,6 @@ public class AccountDto {
     private Long id;
     private String accountHolderName;
     private double balance;
+    private double projectedInterest;
+    private double projectedBalance;
 }

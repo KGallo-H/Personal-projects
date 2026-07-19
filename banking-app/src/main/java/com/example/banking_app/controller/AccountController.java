@@ -1,9 +1,11 @@
 package com.example.banking_app.controller;
 
 import java.util.Map;
+import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -51,4 +53,17 @@ public class AccountController {
         AccountDto accountDto = accountService.withdraw(accountId, amount);
         return ResponseEntity.ok(accountDto);
     }
+
+    @GetMapping
+    public ResponseEntity<List<AccountDto>> getAllAccounts() {
+        return ResponseEntity.ok(accountService.getAllAccounts());
+    }
+
+    @DeleteMapping("/{accountId}")
+    public ResponseEntity<String> deleteAccount(@PathVariable Long accountId) {
+        accountService.deleteAccount(accountId);
+        return ResponseEntity.ok("Account deleted successfully");
+    }
+
+    
 }

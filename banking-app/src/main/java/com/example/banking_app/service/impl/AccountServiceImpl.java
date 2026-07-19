@@ -14,6 +14,8 @@ import com.example.banking_app.service.AccountService;
 @Service
 public class AccountServiceImpl implements AccountService {
 
+    private static final double INTEREST_RATE = 0.05;
+
     private AccountRepository accountRepository;
 
     
@@ -62,5 +64,14 @@ public class AccountServiceImpl implements AccountService {
         return accounts.stream().map((account) -> AccountMapper.mapToAccountDto(account)).collect(Collectors.toList());
         
     }
+
+    @Override
+    public void deleteAccount(Long accountId) {
+        Account account = accountRepository.findById(accountId).orElseThrow(() -> new RuntimeException("Account not found with id: " + accountId));
+        accountRepository.deleteById(accountId);
+    }
+
+    
+    
 
 }
